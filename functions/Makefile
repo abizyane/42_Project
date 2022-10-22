@@ -10,20 +10,33 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC := cc
-CFLAGS := -Wall-Wextra-Werror
-SRC := ft_isalpha.c ft_isdigit.c ft_isprint.c ft_isascii.c ft_isalnum.c ft_bzero.c 
-		ft_strlen.c ft_memset.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_strchr.c ft_strlcat.c 
-		ft_strlcpy.c ft_strrchr.c ft_tolower.c ft_toupper.c
+CC = cc
+FLAGS = -Wall -Wextra -Werror
+MAND_SRC = ft_bzero.c   ft_isascii.c ft_memcpy.c  ft_strchr.c  ft_strlen.c\
+			ft_isalnum.c ft_isdigit.c ft_memmove.c ft_strlcat.c ft_tolower.c\
+            ft_isalpha.c ft_isprint.c ft_memset.c  ft_strlcpy.c ft_toupper.c\
+            ft_strrchr.c ft_memchr.c ft_atoi.c ft_strncmp.c
 
-OBG := $(SRC:.c=.o)
-NAME := libft.a
+MAND_OBJ = $(MAND_SRC:.c=.o)
+RM = rm -rf
+NAME  = libft.a
+HEADER = libft.h
 
-all: $(NAME)
-$(NAME) : $(OBJ)
-	ar rc $(NAME) $(OBG)
+
+all : $(NAME)
+
+$(NAME) : $(MAND_OBJ)
+	@ar -rc $@ $(MAND_OBJ)
+
+%.o : %.c ${HEADER}
+	@$(CC) $(FLAGS) -c $<
+
 clean :
-	rm -rf *.o
+	@$(RM) $(MAND_OBJ) $(BONUS_OBJ)
+
 fclean : clean
-	rm -rf $(NAME)
-re: fclean all
+	@$(RM) $(NAME)
+
+re : fclean all bonus
+
+.PHONY: all fclean clean re

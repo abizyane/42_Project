@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abizyane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 15:00:37 by abizyane          #+#    #+#             */
-/*   Updated: 2022/10/16 17:38:25 by abizyane         ###   ########.fr       */
+/*   Created: 2022/10/21 11:15:14 by abizyane          #+#    #+#             */
+/*   Updated: 2022/10/21 12:52:27 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include"libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_atoi(const char *str)
 {
 	int	i;
-	int	m;
+	int	sgn;
+	int	rslt;
 
-	m = ft_strlen(s);
 	i = 0;
-	while (i <= m)
+	sgn = 1;
+	rslt = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-')
+		sgn = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (s[i] == c)
-			return ((char *)s + i);
-		else
-			i++;
+		rslt = (10 * rslt) + (str[i] - '0');
+		i++;
 	}
-	return (NULL);
-}
+	return (rslt * sgn);
+}			
