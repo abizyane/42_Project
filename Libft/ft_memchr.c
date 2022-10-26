@@ -6,7 +6,7 @@
 /*   By: abizyane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:21:18 by abizyane          #+#    #+#             */
-/*   Updated: 2022/10/18 18:15:58 by abizyane         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:49:09 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)

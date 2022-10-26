@@ -6,7 +6,7 @@
 /*   By: abizyane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:13:44 by abizyane          #+#    #+#             */
-/*   Updated: 2022/10/17 15:13:14 by abizyane         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:47:27 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	if (dstsize < l)
 		return (l);
 	if (dstsize == 0)
-		return(0);
+		return (0);
 	while (src[j] && l < (dstsize - 1))
 	{
 		dst[j] = src[j];

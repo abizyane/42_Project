@@ -6,7 +6,7 @@
 /*   By: abizyane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:11:52 by abizyane          #+#    #+#             */
-/*   Updated: 2022/10/24 11:25:35 by abizyane         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:52:37 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *hst, const char *ndl, size_t len);
 void	*ft_calloc(size_t count, size_t size);
-char    *ft_strdup(const char *s1);
-{
+char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
