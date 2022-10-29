@@ -46,7 +46,7 @@ void	free_tab(char **s, int l)
 	free(s);
 }
 
-char	**ft_splitsub(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
