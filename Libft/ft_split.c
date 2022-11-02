@@ -46,11 +46,33 @@ void	free_tab(char **s, int l)
 	free(s);
 }
 
+int	next_spl(const char *s, char **str, char c, int *x)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = 0;
+	while (s[i] != c && s[i])
+	{
+		i++;
+		j++;
+	}
+	str[(*x)] = ft_substr(s, i - j, j);
+	if (str[(*x)] == NULL)
+	{
+		free_tab(str, (*x));
+		return (-1);
+	}
+	(*x)++;
+	return (i);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	x;
+	int		i;
+	int		j;
+	int		x;
 	char	**str;
 
 	i = 0;
@@ -65,19 +87,10 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (s[i] != c && s[i])
 		{
-			j = 0;
-			while (s[i] != c && s[i])
-			{
-				i++;
-				j++;
-			}
-			str[x] = ft_substr(s, i - j, j);
-			if (str[x] == NULL)
-			{
-				free_tab(str, x);
+			j = next_spl(&s[i], str, c, &x);
+			if (j == -1)
 				return (NULL);
-			}
-			x++;
+			i += j;
 		}
 	}
 	return (str);
