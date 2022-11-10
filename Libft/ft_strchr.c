@@ -14,11 +14,9 @@
 char	*ft_strchr(const char *s, int c)
 {
 	int	i;
-	int	m;
 
-	m = ft_strlen(s);
 	i = 0;
-	while (i <= m)
+	while (i <= (int)ft_strlen(s))
 	{
 		if (s[i] == (unsigned char)c)
 			return ((char *)s + i);

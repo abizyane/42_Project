@@ -12,7 +12,7 @@
 
 #include"libft.h"
 
-size_t	countst(char const *str, char c)
+static size_t	countst(char const *str, char c)
 {
 	size_t	l;
 	size_t	k;
@@ -33,7 +33,7 @@ size_t	countst(char const *str, char c)
 	return (l);
 }
 
-void	free_tab(char **s, int l)
+static void	free_tab(char **s, int l)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ void	free_tab(char **s, int l)
 	free(s);
 }
 
-int	next_spl(const char *s, char **str, char c, int *x)
+static int	next_spl(const char *s, char **str, char c, int *x)
 {
 	int	i;
 	int	j;

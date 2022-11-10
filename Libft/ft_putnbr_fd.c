@@ -1,61 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abizyane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 10:38:34 by abizyane          #+#    #+#             */
-/*   Updated: 2022/10/31 10:15:03 by abizyane         ###   ########.fr       */
+/*   Created: 2022/11/02 18:35:30 by abizyane          #+#    #+#             */
+/*   Updated: 2022/11/02 22:18:20 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-static size_t	ilen(int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	if (n == 0)
-		i++;
 	if (n < 0)
 	{
+		write (fd, "-", 1);
 		n *= -1;
-		i++;
 	}
-	while (n > 0)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_itoa(int n)
-{
-	size_t	i;
-	char	*str;
-
-	i = ilen(n);
 	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	str = ft_calloc((i + 1), sizeof(char));
-	if (!str)
-		return (NULL);
-	if (n < 0)
 	{
-		str[0] = '-';
-		n *= -1;
+		write (fd, "214748364", 9);
+		write (fd, "8", 1);
 	}
-	if (n == 0)
-		str[0] = '0';
-	i -= 1;
-	while (n > 0)
+	else if (n >= 10)
 	{
-		str[i] = (n % 10) + '0';
-		n /= 10;
-		i--;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	return (str);
+	else
+		ft_putchar_fd(n + '0', fd);
 }
