@@ -6,7 +6,7 @@
 /*   By: abizyane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:34:25 by abizyane          #+#    #+#             */
-/*   Updated: 2022/10/28 21:39:15 by abizyane         ###   ########.fr       */
+/*   Updated: 2022/11/12 00:34:15 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,11 @@ static void	free_tab(char **s, int l)
 static int	next_spl(const char *s, char **str, char c, int *x)
 {
 	int	i;
-	int	j;
 
-	j = 0;
 	i = 0;
 	while (s[i] != c && s[i])
-	{
 		i++;
-		j++;
-	}
-	str[(*x)] = ft_substr(s, i - j, j);
+	str[(*x)] = ft_substr(s, 0, i);
 	if (str[(*x)] == NULL)
 	{
 		free_tab(str, (*x));
@@ -68,7 +63,7 @@ static int	next_spl(const char *s, char **str, char c, int *x)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**splitx(char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -94,4 +89,11 @@ char	**ft_split(char const *s, char c)
 		}
 	}
 	return (str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	if (!s)
+		return (NULL);
+	return (splitx(s, c));
 }

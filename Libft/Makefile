@@ -30,16 +30,16 @@ HEADER = libft.h
 all : $(NAME)
 
 $(NAME) : $(MAND_OBJ)
-	@ar -rc $@ $(MAND_OBJ)
+	ar -rc $@ $(MAND_OBJ)
 
 %.o : %.c ${HEADER}
-	@$(CC) $(FLAGS) -c $<
+	$(CC) $(FLAGS) -c $<
 
 clean :
-	@$(RM) $(MAND_OBJ) $(BONUS_OBJ)
+	$(RM) $(MAND_OBJ) $(BONUS_OBJ)
 
 fclean : clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re : fclean all bonus
 
