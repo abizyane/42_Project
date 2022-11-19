@@ -19,20 +19,18 @@ SRC =  ft_bzero.c ft_isascii.c ft_memcpy.c  ft_strchr.c  ft_strlen.c\
 			ft_strnstr.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c\
 			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c\
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
-			
 
 OBJ = $(SRC:.c=.o)
 RM = rm -rf
 NAME  = libft.a
 HEADER = libft.h
 
-
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	ar -rc $(NAME) $(OBJ)
 
-%.o : %.c ${HEADER}
+%.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
@@ -41,6 +39,6 @@ clean :
 fclean : clean
 	$(RM) $(NAME)
 
-re : fclean all bonus
+re : fclean all
 
 .PHONY: all fclean clean re
