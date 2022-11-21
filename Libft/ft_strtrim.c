@@ -17,18 +17,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	j;
 	size_t	x;
-	char	*s;
 
 	i = 0;
 	if (!s1 || !set)
 		return (NULL);
 	x = ft_strlen(s1) - 1;
+	if ((int)x == -1)
+		return (ft_substr(s1, 0, 0));
 	while (ft_strchr(set, s1[i]) && s1[i])
 		i++;
 	while (ft_strchr(set, s1[x]) && s1[x])
 		x--;
 	j = (x - i) + 1;
-	s = ft_substr(s1, i, j);
-	return (s);
+	return (ft_substr(s1, i, j));
 }
-

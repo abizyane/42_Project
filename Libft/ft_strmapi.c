@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abizyane <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:39:08 by abizyane          #+#    #+#             */
-/*   Updated: 2022/10/31 10:19:49 by abizyane         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:11:42 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		x[i] = f(i, s[i]);
 		i++;
 	}
-	x[i] = '\0';
 	return (x);
 }
