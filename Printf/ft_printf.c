@@ -6,7 +6,7 @@
 /*   By: abizyane <abizyane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:53:18 by abizyane          #+#    #+#             */
-/*   Updated: 2022/11/23 12:08:09 by abizyane         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:01:12 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int	ft_printf(const char *arg, ...)
 	while (arg[i])
 	{
 		if (arg[i] == '%' && arg[i + 1])
-			len = checkfs(arg[++i], p);
+			len += checkfs(arg[++i], p);
 		else if (arg[i] == '%')
 			break ;
 		else
-			write (1, &arg[i], 1);
+			len += write (1, &arg[i], 1);
 		i++;
 	}
 	va_end(p);
