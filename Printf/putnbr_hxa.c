@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr_hx.c                                        :+:      :+:    :+:   */
+/*   putnbr_hxa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abizyane <abizyane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 16:36:57 by abizyane          #+#    #+#             */
-/*   Updated: 2022/11/26 18:54:17 by abizyane         ###   ########.fr       */
+/*   Created: 2022/11/26 18:59:32 by abizyane          #+#    #+#             */
+/*   Updated: 2022/11/26 19:05:45 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 
-int	putnbr_hx(size_t n)
+int	putnbr_hxa(unsigned int n)
 {
 	int		i;
 	char	*s;
@@ -21,8 +21,8 @@ int	putnbr_hx(size_t n)
 	s = "0123456789abcdef";
 	if (n > 15)
 	{
-		i += putnbr_hx(n / 16);
-		i += putnbr_hx(n % 16);
+		i += putnbr_hxa(n / 16);
+		i += putnbr_hxa(n % 16);
 	}
 	else
 		i += ft_putchar(s[n]);

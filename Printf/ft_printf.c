@@ -6,7 +6,7 @@
 /*   By: abizyane <abizyane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:53:18 by abizyane          #+#    #+#             */
-/*   Updated: 2022/11/26 16:01:12 by abizyane         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:02:36 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ int	checkfs(char c, va_list p)
 		l += putnbr_id(va_arg(p, int));
 	else if (c == 'u')
 		l += putnbr_u(va_arg(p, unsigned int));
-	else if (c == 'x' || c == 'p')
+	else if (c == 'x')
+		l += putnbr_hxa(va_arg(p, unsigned int));
+	else if (c == 'p')
 	{
-		if (c == 'p')
-			l += write (1, "0x", 2);
+		l += write (1, "0x", 2);
 		l += putnbr_hx(va_arg(p, size_t));
 	}
 	else if (c == 'X')
 		l += putnbr_x(va_arg(p, unsigned int));
-	else if (c == '%')
-		l += write (1, "%", 1);
+	else
+		l += write (1, &c, 1);
 	return (l);
 }
 

@@ -6,7 +6,7 @@
 /*   By: abizyane <abizyane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:50:24 by abizyane          #+#    #+#             */
-/*   Updated: 2022/11/26 16:01:21 by abizyane         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:07:05 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	putnbr_u(unsigned int n);
 int	putnbr_id(int n);
 int	putnbr_hx(size_t n);
 int	putnbr_x(unsigned int n);
+int	putnbr_hxa(unsigned int n);
 
 #endif
