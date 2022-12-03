@@ -5,21 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abizyane <abizyane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 15:45:03 by abizyane          #+#    #+#             */
-/*   Updated: 2022/12/02 17:53:05 by abizyane         ###   ########.fr       */
+/*   Created: 2022/11/23 13:34:54 by abizyane          #+#    #+#             */
+/*   Updated: 2022/12/03 16:30:02 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line.h"
 #include<stdio.h>
 
-char	*joinnewbuff(char *res, char *str)
+void	*freeptr(char *s)
 {
-	char	*tmp;
-
-	tmp = ft_strjoin(res, str);
-	free (res);
-	return (tmp);
+	if (s)
+		free (s);
+	s = NULL;
+	return (s);
 }
 
 char	*readline(int fd, char *res)
@@ -37,13 +36,13 @@ char	*readline(int fd, char *res)
 		if (i == 0)
 			break ;
 		else if (i < 0)
-			return (free (res),free (str), NULL);
+			return (freeptr(res), NULL);
 		str[i] = '\0';
-		res = joinnewbuff(res, str);
+		res = ft_strjoin(res, str);
 		if (findnl(str))
 			break ;
 	}
-	return (free (str), res);
+	return (freeptr(str), res);
 }
 
 char	*writeline(char *str)
@@ -82,7 +81,7 @@ char	*savedata(char *res)
 	if (res[i] == '\n')
 		i++;
 	else if (res[i] == '\0')
-		return (free (res), NULL);
+		return (freeptr(res), NULL);
 	j = 0;
 	tmp = ft_calloc((ft_strlen(res) - i + 1), 1);
 	if (!tmp)
@@ -90,7 +89,7 @@ char	*savedata(char *res)
 	j = 0;
 	while (res && res[i])
 		tmp[j++] = res[i++];
-	return (free (res), tmp);
+	return (freeptr(res), tmp);
 }
 
 char	*get_next_line(int fd)

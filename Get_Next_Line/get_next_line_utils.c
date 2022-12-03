@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abizyane <abizyane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 15:29:20 by abizyane          #+#    #+#             */
-/*   Updated: 2022/12/02 17:51:48 by abizyane         ###   ########.fr       */
+/*   Created: 2022/11/23 13:35:29 by abizyane          #+#    #+#             */
+/*   Updated: 2022/12/03 16:29:26 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ int	findnl(char *s)
 	{
 		if (s[i] == '\n')
 			return (1);
-		else
-			i++;
+		i++;
 	}
 	return (0);
 }
@@ -87,5 +86,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		dst[i + j] = s2[j];
 		j++;
 	}
+	freeptr(s1);
 	return (dst);
 }
